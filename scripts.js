@@ -1,68 +1,63 @@
 //-------Global Variables------//
-
-counter = 0
-allDice = [];
-diceVal = [];
+let diceVal = []
+let counter = 0
+let allDice = [];;
 
 
 //------ OOP Class ----//
 class Die {
     constructor(value) {
-        value = randomVal(1, 6)
+        this.value = value;
+        this.value = randomVal(1, 6)
         this.div = document.createElement('div');
         this.div.classList.add('dice');
         this.div.id = counter
-        this.div.innerText = value;
+        this.div.innerText = this.value;
+        allDice.push(this)
         $(this.div).click(() => {
             this.roll();
-            diceVal = []
-        })
-        allDice.push(this)
-        // (`${this.div}`).dblclick(() => {
-        //     //removes div
-        // })
+        });
+       $(this.div).dblclick(() => {
+           this.removeDie();
+       })
 
         $('.diceContainer').append(this.div);
-
     }
+
     roll() {
-        let newVal = randomVal(1, 6)
-        this.div.innerText = newVal
+        this.value = randomVal(1, 6)
+        this.div.innerText = this.value
     }
 
+    removeDie() {
+        const index = allDice.indexOf(this);
+        if(index > -1){
+            allDice.splice(index, 1)
+        }
+        this.div.parentNode.removeChild(this.div);
+    }
 }
 
-
-
 //---- Button Events----//
-
 $('.getDice').on('click', function () {
-    insertDice()
-})
+    insertDice();
+});
 
 
 $('.rollDice').click(function () {
     allDice.forEach((val) => {
         val.roll()
-    })
-    diceVal = []
-})
-
+    });
+});
 
 $('.sumDice').click(function () {
     diceTotal(allDice);
-
-
-
-})
-
-
+});
 
 // --- Global Funtions ---//
 function insertDice() {
+    new Die();
     counter++
-    new Die()
-
 }
 
 
@@ -71,12 +66,12 @@ function randomVal(min, max) {
 }
 
 
-function diceTotal(arr) {
+function diceTotal() {
+    let diceVal = [];
     allDice.forEach((val) => {
         let num = parseInt(val.div.innerText)
         diceVal.push(num);
     });
     let answer = diceVal.reduce((acc, val) => acc + val)
-    alert(`Your total is: ${answer}`)
-
+    alert(`Your total is: ${answer}`);
 }
