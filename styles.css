@@ -1,14 +1,41 @@
 .diceContainer {
     display: flex;
-
-}
-
-.dice {
+    flex-wrap: wrap;
+  }
+  
+  .dice {
     display: flex;
     justify-content: center;
     margin: 10px;
     align-items: center;
     height: 100px;
     width: 100px;
-    border: black solid 2px;
-}
+    border: rgb(79, 96, 112) solid 2px;
+    background-color: rgb(29, 35, 41);
+    color: rgb(192, 100, 57);
+    font-size: 25px;
+  }
+  
+  .mainButtons {
+    display: flex;
+    padding-top: 2em;
+    justify-content: center;
+    background-color: rgba(192, 100, 57, 0.589);;
+  }
+  
+  .button {
+      margin: 1em;
+      padding: 10px;
+      background-color: rgb(29, 35, 41);
+      color: rgb(192, 100, 57);
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      
+  }
+  
+  body{
+      background-color: rgb(51, 62, 72);
+      font-family: 'Lato', sans-serif;
+  }
+  
+  
