@@ -1,0 +1,26 @@
+{
+  "name": "DiceyBusiness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "dependencies": {
+    "@types/jquery": "^3.3.33",
+    "jquery": "^3.4.1",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catcallahan/DiceyBusiness.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catcallahan/DiceyBusiness/issues"
+  },
+  "homepage": "https://github.com/catcallahan/DiceyBusiness#readme"
+}

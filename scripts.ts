@@ -1,21 +1,21 @@
 //-------Global Variables------//
 let diceVal = []
 let counter : number = 0
-let allDice = [];
+let allDice: any[] = [];
 
 
 
 //------ OOP Class ----//
 class Die {
     div : HTMLElement;
+
     
     constructor(public value : number) {
         this.value = value;
-        this.value = randomVal(1, 6)
         this.div = document.createElement('div');
         this.div.classList.add('dice');
-        this.div.id = counter
-        this.div.innerText = this.value;
+        this.div.id = counter.toString();
+        this.div.innerText = this.value.toString();
         allDice.push(this)
         $(this.div).click(() => {
             this.roll();
@@ -29,7 +29,7 @@ class Die {
 
     roll() {
         this.value = randomVal(1, 6)
-        this.div.innerText = this.value
+        this.div.innerText = this.value.toString();
         
     }
 
@@ -38,7 +38,7 @@ class Die {
         if(index > -1){
             allDice.splice(index, 1)
         }
-        this.div.parentNode.removeChild(this.div);
+        this.div.remove();
     }
 }
 
@@ -60,18 +60,18 @@ $('.sumDice').click(function () {
 
 // --- Global Funtions ---//
 function insertDice() {
-    new Die();
+    new Die(randomVal(1, 6));
     counter++
 }
 
 
-function randomVal(min, max) {
+function randomVal(min: number, max: number) {
     return Math.floor((Math.random() * (max - min)) + min)
 }
 
 
-function diceTotal() {
-    let diceVal = [];
+function diceTotal<arr>(arg : arr[]) {
+    let diceVal: number[] = [];
     allDice.forEach((val) => {
         let num = parseInt(val.div.innerText)
         diceVal.push(num);
