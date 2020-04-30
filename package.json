@@ -5,7 +5,7 @@
   "main": "scripts.js",
   "dependencies": {
     "@types/jquery": "^3.3.33",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "typescript": "^3.8.3"
   },
   "devDependencies": {},
